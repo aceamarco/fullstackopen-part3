@@ -1,0 +1,70 @@
+# Ignore Node.js files
+node_modules/
+
+# Ignore build artifacts
+build/
+dist/
+*.log
+*.zip
+
+# Ignore development files and folders
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+coverage/
+.cache/
+*.swp
+*.swo
+*.log
+*.tmp
+*.bak
+*.d.ts
+*.map
+*.tsbuildinfo
+
+# Ignore dependency directories for each app
+**/node_modules/
+**/node_modules/
+**/node_modules/
+
+# Ignore OS-generated files
+Thumbs.db
+ehthumbs.db
+
+# Ignore text editor files
+*.sublime-project
+*.sublime-workspace
+*.vscode/
+*.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Ignore package manager files
+yarn-error.log
+npm-debug.log
+yarn.lock
+package-lock.json
+
+# Ignore user-specific files
+.vscode/
+.idea/
+*.suo
+*.user
+*.sln.docstates
+
+# Ignore miscellaneous files
+*.log
+*.bak
+*.tmp
+
+# Ignore sensitive or environment-specific information
+.env*
+
+# Ignore local development configuration files
+config.js
