@@ -5,6 +5,7 @@ const cors = require('cors')
 const app = express()
 app.use(express.json())
 app.use(cors())
+app.use(express.static('dist'))
 
 
 // Define a custom log format that includes request body for POST requests
@@ -65,18 +66,17 @@ app.delete('/api/persons/:id', (request, response) => {
   const id = Number(request.params.id);
   persons = persons.filter(person => person.id !== id)
 
-  response.status(404).end()
+  response.status(202).end()
 })
 
 app.post('/api/persons', (request, response) => {
   const body = request.body;
-  console.log(body)
 
   if (!body.name || !body.number) {
     return response.status(400).json({ error: 'Name or number is missing' });
   }
 
-  if (!persons.find(p=>p.name == body.name)){
+  if (persons.find(p=>p.name == body.name)){
     return response.status(400).json({error: 'name must be unique'})
   }
 
@@ -90,7 +90,7 @@ app.post('/api/persons', (request, response) => {
   response.json(newPerson);
 });
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
